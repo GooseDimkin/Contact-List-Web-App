@@ -1,6 +1,6 @@
 import style from './AddContactPage.module.css';
 import {connect} from 'react-redux';
-import {getContactNameAC, getContactPhoneAC, addContactAC} from './../../redux/reducers/contactsReducer';
+import {getContactNameAC, getContactPhoneAC, addContactAC, clearFieldsAC} from './../../redux/reducers/contactsReducer';
 import React from 'react';
 
 function AddContactPage(props) {
@@ -19,11 +19,22 @@ function AddContactPage(props) {
   }
 
   let addContact = () => {
+    if(!nameRef.current.value) {
+      alert('Пожалуйста, введите имя контакта');
+      return
+    }
+    if(!phoneRef.current.value) {
+      alert('Пожалуйста, введите телефон контакта');
+      return
+    }
+
     let newContact = {
       name: props.currentContactName,
       phone: props.currentContactPhone
     }
-    return props.addContactAC(newContact);
+    props.addContactAC(newContact); 
+    props.clearFieldsAC();
+    return props.setActive(false);
   }
 
   return (
@@ -46,6 +57,6 @@ const mapStateToProps = (state) => {
   }
 }
 
-let AddContactPageContainer = connect(mapStateToProps, {getContactNameAC, getContactPhoneAC, addContactAC})(AddContactPage);
+let AddContactPageContainer = connect(mapStateToProps, {getContactNameAC, getContactPhoneAC, addContactAC, clearFieldsAC})(AddContactPage);
 
 export default AddContactPageContainer;

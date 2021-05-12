@@ -1,6 +1,7 @@
 const GET_CONTACT_NAME = 'GET_CONTACT_NAME';
 const GET_CONTACT_PHONE ='GET_CONTACT_PHONE';
 const ADD_CONTACT = 'ADD_CONTACT';
+const CLEAR_FIELDS = 'CLEAR_FIELDS';
 
 let initialState = {
     contacts: [],
@@ -27,6 +28,13 @@ let contactsReducer = (state = initialState, action) => {
                 ...state,
                 contacts: [...state.contacts, action.newContact]
             }
+        
+        case CLEAR_FIELDS:
+            return {
+                ...state,
+                currentContactName: '',
+                currentContactPhone: ''
+            }
 
         default: 
             return state
@@ -46,6 +54,10 @@ export const getContactPhoneAC = (currentContactPhone) => {
 
 export const addContactAC = (newContact) => {
     return{type: ADD_CONTACT, newContact: newContact}
+}
+
+export const clearFieldsAC = () => {
+    return{type: CLEAR_FIELDS}
 }
 
 export default contactsReducer;

@@ -15,7 +15,7 @@ function LoginPage(props) {
     }
 
     let loginAction = () => {
-        if(!props.currentInputText) 
+        if(!ref.current.value) 
             alert('Пожалуйста, введите имя пользователя для начала.') 
         else {
             props.changeLoginStatusAC(true);

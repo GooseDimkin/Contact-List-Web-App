@@ -15,6 +15,11 @@ function App(props) {
 
   const [modalActive, setModalActive] = useState(false);
 
+  let contactsItem;
+  if(props.contacts) {
+    contactsItem = props.contacts.map(c => <Contact name={c.name} />)
+  }
+
   return (
     <div className={style.main_content}>
       {props.isLoggined && localStorage.setItem('isAuth', true)} 
@@ -26,11 +31,7 @@ function App(props) {
       <button className={style.new_contact_button} onClick={() => setModalActive(true)} >New Contact</button>
       <AddContactPage active={modalActive} setActive={setModalActive} />
       <div className={style.contacts}>
-        <Contact/>
-        <Contact/>
-        <Contact/>
-        <Contact/>
-        <Contact/>
+        {contactsItem}
       </div>
     </div>
   );
@@ -38,7 +39,8 @@ function App(props) {
 
 const mapStateToProps = (state) => {
   return {
-    isLoggined: state.loginData.isLoggined
+    isLoggined: state.loginData.isLoggined,
+    contacts: state.contactsData.contacts
   }
 }
 
