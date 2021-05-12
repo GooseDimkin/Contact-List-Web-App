@@ -27,8 +27,8 @@ function LoginPage(props) {
     return (
         <div>
             <div className={style.label}>SignIn</div>
-            <input className={style.input} type='text' ref={ref} onChange={changeCurrentInputText} value={props.currentInputText} />
-            <button className={style.button} onClick={loginAction}>Submit</button>
+            <div className={style.content_center}><input className={style.input} type='text' placeholder="What's your name?" ref={ref} onChange={changeCurrentInputText} value={props.currentInputText} /></div>
+            <div className={style.content_center}><button className={style.button} onClick={loginAction}>Submit</button></div>
         </div>
     );
 }

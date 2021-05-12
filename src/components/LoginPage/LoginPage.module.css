@@ -5,17 +5,18 @@
     line-height: 44px;
     letter-spacing: 0px;
     text-align: center;
-    margin-top: 319px;
+    margin-top: 30vh;
 }
 
 .input {
     height: 48px;
     width: 320px;
-    margin-left: 800px;
     margin-top: 22px;
     border: 2px solid #000000;
     box-sizing: border-box;
     border-radius: 6px;
+    padding-left: 10.5px;
+    font-size: 20px;
 }
 
 .button { 
@@ -25,7 +26,6 @@
     border-radius: 6px;
     height: 48px;
     width: 320px;
-    margin-left: 800px;
     margin-top: 22px;
     font-size: 20px;
     color: white;
@@ -34,4 +34,8 @@
 .button:hover { 
     background: #07d672;
     cursor: pointer;
+}
+
+.content_center {
+    text-align: center;
 }

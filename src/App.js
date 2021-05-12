@@ -1,8 +1,9 @@
 import style from './App.module.css';
-import {Redirect, Route} from 'react-router-dom';
+import {Redirect} from 'react-router-dom';
 import {connect} from 'react-redux'
 import AddContactPage from './components/AddContactPage/AddContactPage';
 import { useState } from 'react';
+import Contact from './components/Contact/Contact';
 
 function App(props) {
 
@@ -15,7 +16,7 @@ function App(props) {
   const [modalActive, setModalActive] = useState(false);
 
   return (
-    <div>
+    <div className={style.main_content}>
       {props.isLoggined && localStorage.setItem('isAuth', true)} 
       {props.isLoggined && localStorage.setItem('userName', props.state.loginData.userName)}
 
@@ -24,6 +25,13 @@ function App(props) {
       <button className={style.logout_button} onClick={logout}>Logout</button>
       <button className={style.new_contact_button} onClick={() => setModalActive(true)} >New Contact</button>
       <AddContactPage active={modalActive} setActive={setModalActive} />
+      <div className={style.contacts}>
+        <Contact/>
+        <Contact/>
+        <Contact/>
+        <Contact/>
+        <Contact/>
+      </div>
     </div>
   );
 }
