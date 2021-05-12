@@ -17,7 +17,7 @@ function App(props) {
 
   let contactsItem;
   if(props.contacts) {
-    contactsItem = props.contacts.map(c => <Contact name={c.name} />)
+    contactsItem = props.contacts.map(c => <Contact name={c.name} key={c} />)
   }
 
   return (
