@@ -16,8 +16,9 @@ function App(props) {
       {props.isLoggined && localStorage.setItem('userName', props.state.loginData.userName)}
 
       {!localStorage.getItem('isAuth') && <Redirect to='/login'/>}
-      <button onClick={logout}>Logout</button>
-      {localStorage.getItem('userName')}
+      <div className={style.user_name}>Hello, {localStorage.getItem('userName')}</div>
+      <button className={style.logout_button} onClick={logout}>Logout</button>
+      <button className={style.new_contact_button}>New Contact</button>
     </div>
   );
 }

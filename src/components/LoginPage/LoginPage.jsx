@@ -16,7 +16,7 @@ function LoginPage(props) {
 
     let loginAction = () => {
         if(!props.currentInputText) 
-            alert('Введите имя пользователя') 
+            alert('Пожалуйста, введите имя пользователя для начала.') 
         else {
             props.changeLoginStatusAC(true);
             props.setUserName(props.currentInputText);
@@ -25,9 +25,10 @@ function LoginPage(props) {
     }
 
     return (
-        <div className={style.login_form}>
-            <input type='text' ref={ref} onChange={changeCurrentInputText} value={props.currentInputText} />
-            <button onClick={loginAction}>Login</button>
+        <div>
+            <div className={style.label}>SignIn</div>
+            <input className={style.input} type='text' ref={ref} onChange={changeCurrentInputText} value={props.currentInputText} />
+            <button className={style.button} onClick={loginAction}>Submit</button>
         </div>
     );
 }

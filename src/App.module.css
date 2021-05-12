@@ -1,38 +1,41 @@
-.App {
-  text-align: center;
+.user_name {
+  font-weight: 900;
+  font-size: 32px;
+  position: absolute;
+  margin-top: 24px;
+  margin-left: 25.5px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.logout_button {
+  font-weight: 900;
+  font-size: 32px;
+  border: none;
+  background-color: white;
+  float: right;
+  margin-top: 24px;
+  margin-right: 25.5px;
+  border-radius: 8px;
+  padding: 0px 10px 0px 10px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.logout_button:hover {
+  background-color: rgb(238, 238, 238);
+  cursor: pointer;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.new_contact_button {
+  width: 240px;
+  height: 48px;
+  border-radius: 6px;
+  border: none;
+  background-color: black;
   color: white;
+  font-size: 20px;
+  margin-top: 89px;
+  margin-left: 25px;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.new_contact_button:hover {
+  background-color: rgb(31, 31, 31);
+  cursor: pointer;
 }
