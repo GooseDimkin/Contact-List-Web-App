@@ -17,10 +17,11 @@ function App(props) {
   const [modalActive, setModalActive] = useState(false);
 
   let contacts = JSON.parse(localStorage.getItem('contacts'))
+  debugger;
 
   let contactsItem;
   if(contacts) {
-    contactsItem = contacts.map(c => <Contact name={c.name} key={c} />)
+    contactsItem = contacts.map(c => <Contact name={c.name} key={c} avatar={c.avatar} />)
   }
 
   return (
@@ -42,8 +43,7 @@ function App(props) {
 
 const mapStateToProps = (state) => {
   return {
-    isLoggined: state.loginData.isLoggined,
-    contacts: state.contactsData.contacts
+    isLoggined: state.loginData.isLoggined
   }
 }
 
