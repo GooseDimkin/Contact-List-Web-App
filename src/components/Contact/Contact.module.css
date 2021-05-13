@@ -1,6 +1,6 @@
 .contact_block {
     width: 300px;
-    height: 265px;
+    height: 290px;
     border: 3px solid #BABABA;
     border-radius: 8px;
     box-sizing: border-box;
@@ -35,4 +35,14 @@
 .call_button:hover { 
     background: #07d672;
     cursor: pointer;
+}
+
+.edit_button {
+    cursor: pointer;
+    margin-left: 250px;
+}
+
+.link {
+    text-decoration: none;
+    color: white;
 }

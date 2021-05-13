@@ -42,6 +42,23 @@
   cursor: pointer;
 }
 
+.csv_contact_button {
+  width: 240px;
+  height: 48px;
+  border-radius: 6px;
+  border: none;
+  background-color: black;
+  color: white;
+  font-size: 20px;
+  margin-top: 89px;
+  margin-left: 33px;
+}
+
+.csv_contact_button:hover {
+  background-color: rgb(31, 31, 31);
+  cursor: pointer;
+}
+
 .contacts {
   display: grid;
   grid-template-columns:repeat(3, 1fr);
