@@ -10,14 +10,17 @@ function App(props) {
   let logout = () => {
     localStorage.removeItem('isAuth');
     localStorage.removeItem('userName');
+    localStorage.removeItem('contacts')
     window.location.reload();
   }
 
   const [modalActive, setModalActive] = useState(false);
 
+  let contacts = JSON.parse(localStorage.getItem('contacts'))
+
   let contactsItem;
-  if(props.contacts) {
-    contactsItem = props.contacts.map(c => <Contact name={c.name} key={c} />)
+  if(contacts) {
+    contactsItem = contacts.map(c => <Contact name={c.name} key={c} />)
   }
 
   return (

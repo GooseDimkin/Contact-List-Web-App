@@ -3,6 +3,10 @@ import {connect} from 'react-redux';
 import {getContactNameAC, getContactPhoneAC, addContactAC, clearFieldsAC} from './../../redux/reducers/contactsReducer';
 import React from 'react';
 
+// var contacts_array = [];
+// contacts_array.push(JSON.parse(localStorage.getItem('contacts')));
+// localStorage.setItem('contacts', JSON.stringify(contacts_array));
+
 function AddContactPage(props) {
 
   let nameRef = React.createRef();
@@ -32,7 +36,14 @@ function AddContactPage(props) {
       name: props.currentContactName,
       phone: props.currentContactPhone
     }
-    props.addContactAC(newContact); 
+    //props.addContactAC(newContact); 
+
+    let contacts_array = [];
+    contacts_array = JSON.parse(localStorage.getItem('contacts')) || [];
+    contacts_array.push(newContact);
+    localStorage.setItem('contacts', JSON.stringify(contacts_array));
+
+    localStorage.setItem('userName', newContact)
     props.clearFieldsAC();
     return props.setActive(false);
   }
