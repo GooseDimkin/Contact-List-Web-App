@@ -20,11 +20,11 @@ function EditContactPage(props) {
 
   let addContact = () => {
     if(!nameRef.current.value) {
-      alert('Пожалуйста, введите имя контакта');
+      alert('Пожалуйста, введите имя контакта.');
       return
     }
     if(!phoneRef.current.value) {
-      alert('Пожалуйста, введите телефон контакта');
+      alert('Пожалуйста, введите телефон контакта.');
       return
     }
 
