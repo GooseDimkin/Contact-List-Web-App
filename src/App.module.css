@@ -6,8 +6,8 @@
 .user_name {
   font-weight: 900;
   font-size: 32px;
-  position: absolute;
   margin-top: 24px;
+  margin-left: 20px;
 }
 
 .logout_button {
@@ -16,9 +16,11 @@
   border: none;
   background-color: white;
   float: right;
-  margin-top: 24px;
+  margin-left: 800px;
+  margin-top: -40px;
   border-radius: 8px;
   padding: 0px 10px 0px 10px;
+  position: absolute;
 }
 
 .logout_button:hover {
@@ -35,6 +37,8 @@
   color: white;
   font-size: 20px;
   margin-top: 89px;
+  margin-right: 33px;
+  margin-left: 20px;
 }
 
 .new_contact_button:hover {
@@ -50,8 +54,8 @@
   background-color: black;
   color: white;
   font-size: 20px;
-  margin-top: 89px;
-  margin-left: 33px;
+  margin-top: 20px;
+  margin-left: 20px;
 }
 
 .csv_contact_button:hover {
