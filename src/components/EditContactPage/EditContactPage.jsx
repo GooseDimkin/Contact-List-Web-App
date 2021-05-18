@@ -2,6 +2,7 @@ import style from './EditContactPage.module.css';
 import {connect} from 'react-redux';
 import {getContactNameAC, getContactPhoneAC, addContactAC, clearFieldsAC} from './../../redux/reducers/contactsReducer';
 import React from 'react';
+import Button from './../Button/Button';
 
 function EditContactPage(props) {
 
@@ -17,6 +18,9 @@ function EditContactPage(props) {
     let currentContactPhone = phoneRef.current.value;
     return props.getContactPhoneAC(currentContactPhone);
   }
+  
+  let contacts = JSON.parse(localStorage.getItem('contacts'));
+  let key = localStorage.getItem('id');
 
   let addContact = () => {
     if(!nameRef.current.value) {
@@ -27,9 +31,6 @@ function EditContactPage(props) {
       alert('Пожалуйста, введите телефон контакта.');
       return
     }
-
-    let contacts = JSON.parse(localStorage.getItem('contacts'));
-    let key = localStorage.getItem('id');
 
     let newContact = {
       name: props.currentContactName,
@@ -57,8 +58,8 @@ function EditContactPage(props) {
             <div className={style.label}>Edit contact</div>
             <div className={style.content_center}><input className={style.input} ref={nameRef} value={props.currentContactName} onChange={getContactName} placeholder='Contact Name' type='text' /></div>
             <div className={style.content_center}><input type='number' className={style.input} ref={phoneRef} value={props.currentContactPhone} onChange={getContactPhone} placeholder='Contact Phone'/></div>
-            <div className={style.content_center}><button className={style.save_button} onClick={addContact}>Save</button></div>
-            <div className={style.content_center}><button className={style.close_button} onClick={() => props.setModalEditContactActive(false)}>Close</button></div>
+            <div className={style.content_center} onClick={addContact}><Button width='100%' marginTop='22px' backgroundColor='#06C668' text='Save'/></div>
+            <div className={style.content_center} onClick={() => props.setModalEditContactActive(false)}><Button type='close' width='100%' marginTop='22px' text='Close'/></div>
         </div>
     </div>
   );

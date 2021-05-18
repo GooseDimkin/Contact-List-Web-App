@@ -2,6 +2,7 @@ import style from './AddContactPage.module.css';
 import {connect} from 'react-redux';
 import {getContactNameAC, getContactPhoneAC, addContactAC, clearFieldsAC} from './../../redux/reducers/contactsReducer';
 import React from 'react';
+import Button from './../Button/Button';
 
 function AddContactPage(props) {
 
@@ -59,8 +60,8 @@ function AddContactPage(props) {
             <div className={style.label}>New contact</div>
             <div className={style.content_center}><input className={style.input} ref={nameRef} value={props.currentContactName} onChange={getContactName} placeholder='Contact Name' type='text' /></div>
             <div className={style.content_center}><input type='number' className={style.input} ref={phoneRef} value={props.currentContactPhone} onChange={getContactPhone} placeholder='Contact Phone' /></div>
-            <div className={style.content_center}><button className={style.save_button} onClick={addContact}>Save</button></div>
-            <div className={style.content_center}><button className={style.close_button} onClick={() => props.setModalAddContactActive(false)}>Close</button></div>
+            <div className={style.content_center} onClick={addContact}><Button width='100%' marginTop='22px' backgroundColor='#06C668' text='Save'/></div>
+            <div className={style.content_center} onClick={() => props.setModalAddContactActive(false)}><Button type='close' width='100%' marginTop='22px' text='Close'/></div>
         </div>
     </div>
   );

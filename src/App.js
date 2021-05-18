@@ -5,13 +5,15 @@ import AddContactPage from './components/AddContactPage/AddContactPage';
 import EditContactPage from './components/EditContactPage/EditContactPage';
 import { useState } from 'react';
 import Contact from './components/Contact/Contact';
+import {getContactNameAC, getContactPhoneAC} from './redux/reducers/contactsReducer';
+import Button from './components/Button/Button';
 
 function App(props) {
-
   let logout = () => {
     localStorage.removeItem('isAuth');
     localStorage.removeItem('userName');
-    localStorage.removeItem('contacts')
+    localStorage.removeItem('contacts');
+    localStorage.removeItem('id')
     window.location.reload();
   }
 
@@ -34,6 +36,8 @@ function App(props) {
 
   let csvData;
   let contactsItem;
+  let contacts_value;
+
   if(contacts) {
     let objectToCsv = function(contacts) {
       const csvRows = [];
@@ -53,7 +57,9 @@ function App(props) {
     csvData = objectToCsv(contacts);
 
     let id = -1;
-    contactsItem = contacts.map(c => <Contact id={id+=1} setModalEditContactActive={() => setModalEditContactActive} name={c.name} phone={c.phone} key={c} avatar={c.avatar} />)
+    contactsItem = contacts.map(c => <Contact id={id+=1} getContactNameAC={props.getContactNameAC} getContactPhoneAC={props.getContactPhoneAC} setModalEditContactActive={() => setModalEditContactActive} name={c.name} phone={c.phone} key={c} avatar={c.avatar} />)
+
+    contacts_value = contactsItem.length;
   }
 
   return (
@@ -64,11 +70,13 @@ function App(props) {
       {!localStorage.getItem('isAuth') && <Redirect to='/login'/>}
       <div className={style.user_name}>Hello, {localStorage.getItem('userName')}</div>
       <button className={style.logout_button} onClick={logout}>Logout</button>
-      <button className={style.new_contact_button} onClick={() => setModalAddContactActive(true)} >New Contact</button>
-      <button className={style.csv_contact_button} onClick={() => download(csvData)} >Download CSV</button>
+      <div className={style.buttons}>
+        <div onClick={() => setModalAddContactActive(true)}><Button marginTop='89px' marginLeft='20px' backgroundColor='black' text='New Contact'/></div>
+        <div onClick={() => download(csvData)}><Button marginTop='89px' marginLeft='20px' backgroundColor='black' text='Download CSV'/></div>
+      </div>
       <AddContactPage modalAddContactActive={modalAddContactActive} setModalAddContactActive={setModalAddContactActive} />
       <EditContactPage modalEditContactActive={modalEditContactActive} setModalEditContactActive={setModalEditContactActive} />
-      <div className={style.contacts}>
+      <div className={contacts_value <3 ? style.not_full_line_contacts : style.full_line_contacts}>
         {contactsItem}
       </div>
     </div>
@@ -81,6 +89,6 @@ const mapStateToProps = (state) => {
   }
 }
 
-let AppContainer = connect(mapStateToProps, null)(App);
+let AppContainer = connect(mapStateToProps, {getContactNameAC, getContactPhoneAC})(App);
 
 export default AppContainer;

@@ -28,42 +28,20 @@
   cursor: pointer;
 }
 
-.new_contact_button {
-  width: 240px;
-  height: 48px;
-  border-radius: 6px;
-  border: none;
-  background-color: black;
-  color: white;
-  font-size: 20px;
-  margin-top: 89px;
-  margin-right: 33px;
+.buttons {
+  display: flex;
+}
+
+.not_full_line_contacts {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-column-gap: 17px;
+  width: 90%;
   margin-left: 20px;
+  margin-right: 20px;
 }
 
-.new_contact_button:hover {
-  background-color: rgb(31, 31, 31);
-  cursor: pointer;
-}
-
-.csv_contact_button {
-  width: 240px;
-  height: 48px;
-  border-radius: 6px;
-  border: none;
-  background-color: black;
-  color: white;
-  font-size: 20px;
-  margin-top: 20px;
-  margin-left: 20px;
-}
-
-.csv_contact_button:hover {
-  background-color: rgb(31, 31, 31);
-  cursor: pointer;
-}
-
-.contacts {
+.full_line_contacts {
   display: grid;
   grid-template-columns: repeat( auto-fit, minmax(250px, 1fr) );
   grid-column-gap: 50px;

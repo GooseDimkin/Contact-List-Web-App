@@ -51,41 +51,6 @@
     width: 100%;
 }
 
-.save_button { 
-    background: #06C668;
-    border: none;
-    box-sizing: border-box;
-    border-radius: 6px;
-    height: 48px;
-    margin-top: 22px;
-    font-size: 20px;
-    color: white;
-    width: 100%;
-}
-
-.save_button:hover { 
-    background: #07d672;
-    cursor: pointer;
-}
-
-.close_button {
-    background: white;
-    border: 2px solid #D30000;
-    box-sizing: border-box;
-    border-radius: 6px;
-    height: 48px;
-    margin-top: 22px;
-    margin-bottom: 100px;
-    font-size: 20px;
-    color: #D30000;
-    width: 100%;
-}
-
-.close_button:hover { 
-    background: #fff3f3;
-    cursor: pointer;
-}
-
 .content_center {
     text-align: center;
 }
