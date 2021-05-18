@@ -7,15 +7,15 @@ import Button from './../Button/Button';
 
 function LoginPage(props) {
     
-    let ref = React.createRef();
+    const ref = React.createRef();
 
-    let changeCurrentInputText = () => {
-        let currentInputText = ref.current.value;
+    const changeCurrentInputText = () => {
+        const currentInputText = ref.current.value;
 
         return props.changeCurrentInputTextAC(currentInputText);
     }
 
-    let loginAction = () => {
+    const loginAction = () => {
         if(!ref.current.value) 
             alert('Пожалуйста, введите имя пользователя для начала.') 
         else {
@@ -40,6 +40,6 @@ const mapStateToProps = (state) => {
     }
 }
 
-let LoginPageContainer = connect(mapStateToProps, {changeCurrentInputTextAC, changeLoginStatusAC, setUserName})(LoginPage);
+const LoginPageContainer = connect(mapStateToProps, {changeCurrentInputTextAC, changeLoginStatusAC, setUserName})(LoginPage);
 
 export default withRouter(LoginPageContainer);

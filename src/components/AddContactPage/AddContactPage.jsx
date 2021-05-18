@@ -6,20 +6,20 @@ import Button from './../Button/Button';
 
 function AddContactPage(props) {
 
-  let nameRef = React.createRef();
-  let phoneRef = React.createRef();
+  const nameRef = React.createRef();
+  const phoneRef = React.createRef();
 
-  let getContactName = () => {
-    let currentContactNameVar = nameRef.current.value;
+  const getContactName = () => {
+    const currentContactNameVar = nameRef.current.value;
     return props.getContactNameAC(currentContactNameVar);
   }
 
-  let getContactPhone = () => {
-    let currentContactPhone = phoneRef.current.value;
+  const getContactPhone = () => {
+    const currentContactPhone = phoneRef.current.value;
     return props.getContactPhoneAC(currentContactPhone);
   }
 
-  let addContact = () => {
+  const addContact = () => {
     if(!nameRef.current.value) {
       alert('Пожалуйста, введите имя контакта.');
       return
@@ -32,7 +32,7 @@ function AddContactPage(props) {
     let seed = 1;
     seed += Math.floor(Math.random() * 99);
 
-    let newContact = {
+    const newContact = {
       name: props.currentContactName,
       phone: props.currentContactPhone,
       avatar: 'https://picsum.photos/seed/' + seed + '/200/200'
@@ -74,6 +74,6 @@ const mapStateToProps = (state) => {
   }
 }
 
-let AddContactPageContainer = connect(mapStateToProps, {getContactNameAC, getContactPhoneAC, addContactAC, clearFieldsAC})(AddContactPage);
+const AddContactPageContainer = connect(mapStateToProps, {getContactNameAC, getContactPhoneAC, addContactAC, clearFieldsAC})(AddContactPage);
 
 export default AddContactPageContainer;

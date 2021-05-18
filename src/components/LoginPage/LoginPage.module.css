@@ -19,23 +19,6 @@
     font-size: 20px;
 }
 
-.button { 
-    background: #06C668;
-    border: none;
-    box-sizing: border-box;
-    border-radius: 6px;
-    height: 48px;
-    width: 320px;
-    margin-top: 22px;
-    font-size: 20px;
-    color: white;
-}
-
-.button:hover { 
-    background: #07d672;
-    cursor: pointer;
-}
-
 .content_center {
     text-align: center;
 }

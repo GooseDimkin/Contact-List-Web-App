@@ -9,7 +9,7 @@ import {getContactNameAC, getContactPhoneAC} from './redux/reducers/contactsRedu
 import Button from './components/Button/Button';
 
 function App(props) {
-  let logout = () => {
+  const logout = () => {
     localStorage.removeItem('isAuth');
     localStorage.removeItem('userName');
     localStorage.removeItem('contacts');
@@ -20,7 +20,7 @@ function App(props) {
   const [modalAddContactActive, setModalAddContactActive] = useState(false);
   const [modalEditContactActive, setModalEditContactActive] = useState(false);
 
-  let contacts = JSON.parse(localStorage.getItem('contacts'))
+  const contacts = JSON.parse(localStorage.getItem('contacts'))
 
   const download = function(data) {
     const blob = new Blob([data], {type: 'text/csv'});
@@ -39,7 +39,7 @@ function App(props) {
   let contacts_value;
 
   if(contacts) {
-    let objectToCsv = function(contacts) {
+    const objectToCsv = function(contacts) {
       const csvRows = [];
       const headers = Object.keys(contacts[0]);
       csvRows.push(headers.join(','));
@@ -89,6 +89,6 @@ const mapStateToProps = (state) => {
   }
 }
 
-let AppContainer = connect(mapStateToProps, {getContactNameAC, getContactPhoneAC})(App);
+const AppContainer = connect(mapStateToProps, {getContactNameAC, getContactPhoneAC})(App);
 
 export default AppContainer;
