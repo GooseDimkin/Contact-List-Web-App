@@ -71,8 +71,8 @@ function App(props) {
       <div className={style.user_name}>Hello, {localStorage.getItem('userName')}</div>
       <button className={style.logout_button} onClick={logout}>Logout</button>
       <div className={style.buttons}>
-        <div onClick={() => setModalAddContactActive(true)}><Button marginTop='89px' marginLeft='20px' backgroundColor='black' text='New Contact'/></div>
-        <div onClick={() => download(csvData)}><Button marginTop='89px' marginLeft='20px' backgroundColor='black' text='Download CSV'/></div>
+        <span onClick={() => setModalAddContactActive(true)}><Button marginTop='89px' marginLeft='20px' backgroundColor='black' text='New Contact'/></span>
+        <span onClick={() => download(csvData)}><Button marginTop='89px' marginLeft='20px' backgroundColor='black' text='Download CSV'/></span>
       </div>
       <AddContactPage modalAddContactActive={modalAddContactActive} setModalAddContactActive={setModalAddContactActive} />
       <EditContactPage modalEditContactActive={modalEditContactActive} setModalEditContactActive={setModalEditContactActive} />

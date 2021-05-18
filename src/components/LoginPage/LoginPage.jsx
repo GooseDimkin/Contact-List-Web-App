@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import {changeCurrentInputTextAC, changeLoginStatusAC, setUserName} from './../../redux/reducers/loginReducer'
 import React from 'react';
 import {withRouter} from 'react-router-dom';
+import Button from './../Button/Button';
 
 function LoginPage(props) {
     
@@ -28,7 +29,7 @@ function LoginPage(props) {
         <div>
             <div className={style.label}>SignIn</div>
             <div className={style.content_center}><input className={style.input} type='text' placeholder="What's your name?" ref={ref} onChange={changeCurrentInputText} value={props.currentInputText} /></div>
-            <div className={style.content_center}><button className={style.button} onClick={loginAction}>Submit</button></div>
+            <div className={style.content_center} onClick={loginAction}><Button width='320px' marginTop='22px' backgroundColor='#06C668' text='Submit'/></div>
         </div>
     );
 }
